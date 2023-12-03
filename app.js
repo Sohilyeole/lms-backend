@@ -19,10 +19,22 @@ app.use(bodyParser.json())
 
 app.use(express.json())
 
+// app.use(cors({
+//     origin:[process.env.FRONTEND_URL], 
+//     credentials:true
+// }));
 app.use(cors({
-    origin:[process.env.FRONTEND_URL], 
+    origin:"http://localhost:5173", 
     credentials:true
 }));
+// app.use(cors({
+//         origin:"*", 
+//         credentials:true
+//     }));
+// app.use(cors({
+//     origin:"http://localhost:5173/", 
+//     credentials:true
+// }));
 
 
 
@@ -36,6 +48,12 @@ app.use("/ping",(req,res)=>{
 
 // routes of 3 main module
 app.use("/api/v1/user",userRoutes);
+// app.use(function(req, res, next) {
+//     res.header('Access-Control-Allow-Origin', yourExactHostname);
+//     res.header('Access-Control-Allow-Credentials', true);
+//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+//     next();
+//   });
 app.use("/api/v1/courses",courseRoutes);
 app.use("/api/v1/payments",paymentRoutes);
 app.use('/api/v1', miscRoutes);
