@@ -7,7 +7,7 @@ import crypto from "crypto";
 
 const cookieOptions = {
    maxAge: 7 * 24 * 60 * 60 * 1000,
-   httpOnly: false,
+   httpOnly: true,
    secure: true,
 };
 
@@ -67,7 +67,7 @@ const register = async (req, res, next) => {
    }
    await user.save();
    user.password = undefined;
-   //token likhnese automatic login hojayge register hone ke bad
+
    const token = await user.generateJWTToken();
    res.cookie("token", token, cookieOptions);
 
