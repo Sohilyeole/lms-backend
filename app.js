@@ -24,7 +24,7 @@ app.use(express.json())
 //     credentials:true
 // }));
 app.use(cors({
-    origin:"http://localhost:5173", 
+    origin:"https://lms-19158912.netlify.app", 
     credentials:true
 }));
 // app.use(cors({
