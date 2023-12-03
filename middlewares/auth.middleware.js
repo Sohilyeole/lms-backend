@@ -6,8 +6,8 @@ import jwt from "jsonwebtoken"
 const isLoggedIn=  async(req,res,next)=>{
   console.log("hiiiii in login in")
    
-  const token=document.cookie ||null;
-  //  const token=(req.cookies && req.cookies.token) || null; //ye ho rha hai due to cookie parser in app.js
+  // const token=document.cookie ||null;
+   const token=(req.cookies && req.cookies.token) || null; //ye ho rha hai due to cookie parser in app.js
     console.log(token)
     if(!token){
       console.log("fksb")
